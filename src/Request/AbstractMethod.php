@@ -53,7 +53,10 @@ abstract class AbstractMethod
         if(!$hydrator instanceof ReflectionHydrator) {
             $hydrator = new ReflectionHydrator();
         }
-
+        
+        if(!is_array($data))
+            return $data;
+        
         return $hydrator->hydrate(
             $data,
             $object
